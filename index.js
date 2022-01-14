@@ -246,10 +246,16 @@ If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 // Hint - Look up the .split() method
 
 function get20s(array) {
- 
+  let filteredArray = [];
+  for(let i = 0; i < array.length; i++){
+    if((array[i].years.split(' ')[0] >= 1900)&& (array[i].years.split(' ')[0] <= 2000)){
+      filteredArray.push(array[i].name)
+    }
+   }
+   return filteredArray;
   }
 
-
+//console.log(get20s(artists));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use removeArtist to do the following:
@@ -264,7 +270,7 @@ function removeArtist(array, number) {
   array.splice(0,1);
   return array.length;
 }
-console.log(removeArtist(artists,1));
+//console.log(removeArtist(artists,1));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use addArtist to do the following: 
@@ -304,11 +310,13 @@ Use lotsOfArt to do the following:
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
 function lotsOfArt(array) {
+  let art = [];
   for(let i = 0; i < array.length; i++){
-    if(array[i] > 100){
-      return array[i].name;
+    if(array[i].paintings > 100){
+      art.push(array[i].name);
     }
   }
+  return art;
 }
 
 
@@ -336,13 +344,13 @@ For example artistByCountry(artists, 'Spanish') will return: [ 'Salvador Dali', 
 */
 
 function artistByCountry(array, nationality){
-  const place = [];
+  let place = [];
   for (let i = 0; i <= artists.length-1; i++){
     if(array[i] === nationality){
       place.push(array[i].nationality);
     }
   }
-  return array;
+  return place;
 }
 //console.log(artistByCountry(artists, 'Spanish'));
 
